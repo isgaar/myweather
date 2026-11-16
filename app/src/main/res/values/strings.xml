@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MyWeather</string>
+    <string name="badge_zero_telemetry">Cero telemetria</string>
+    <string name="cd_open_locations">Abrir ubicaciones</string>
+    <string name="cd_refresh_weather">Actualizar clima</string>
+    <string name="cd_toggle_units">Cambiar unidad de temperatura</string>
+    <string name="cd_privacy_info">Privacidad y cero telemetria</string>
+    <string name="cd_close">Cerrar</string>
+    <string name="cd_weather_icon">Icono de condicion climatica</string>
+    <string name="cd_location_pin">Ubicacion establecida</string>
+
+    <string name="feels_like_fmt">Sensacion %1$s</string>
+    <string name="high_low_fmt">%1$s / %2$s</string>
+    <string name="elevation_fmt">%1$d m altitud</string>
+    <string name="sunrise_label">Amanecer</string>
+    <string name="sunset_label">Atardecer</string>
+    <string name="yesterday_label">Ayer</string>
+    <string name="today_label">Hoy</string>
+    <string name="now_label">Ahora</string>
+
+    <string name="hourly_summary_fmt">%1$s. Maximas de %2$s y minimas de %3$s.</string>
+    <string name="section_hourly_title">Pronostico por hora</string>
+    <string name="section_daily_title">Proximos dias</string>
+    <string name="section_solar_title">Ciclo solar</string>
+    <string name="sunrise_value_fmt">Amanecer: %1$s</string>
+    <string name="sunset_value_fmt">Atardecer: %1$s</string>
+
+    <string name="highlight_wind_title">Viento y rachas</string>
+    <string name="highlight_wind_body_fmt">%1$s %2$s, rachas de hasta %3$s</string>
+    <string name="highlight_humidity_title">Humedad y presion</string>
+    <string name="highlight_humidity_body_fmt">Humedad %1$d%%, presion %2$d hPa en valle</string>
+    <string name="highlight_uv_title">Indice UV y visibilidad</string>
+    <string name="highlight_uv_body_fmt">UV %1$s (%2$s), visibilidad %3$s km</string>
+    <string name="highlight_air_title">Calidad del aire y altura</string>
+    <string name="highlight_air_body_fmt">ICA %1$d (%2$s), PM2.5 %3$s ug/m3</string>
+    <string name="highlight_air_na_fmt">Altitud %1$d m, sin telemetria activa</string>
+
+    <string name="uv_low">Bajo</string>
+    <string name="uv_moderate">Moderado</string>
+    <string name="uv_high">Alto</string>
+    <string name="uv_very_high">Muy alto</string>
+    <string name="aqi_good">Buena</string>
+    <string name="aqi_fair">Aceptable</string>
+    <string name="aqi_moderate">Moderada</string>
+    <string name="aqi_poor">Mala</string>
+
+    <string name="cond_clear">Despejado</string>
+    <string name="cond_mostly_clear">Mayormente despejado</string>
+    <string name="cond_partly_cloudy">Parcialmente nublado</string>
+    <string name="cond_overcast">Nublado</string>
+    <string name="cond_fog">Neblina</string>
+    <string name="cond_drizzle">Llovizna</string>
+    <string name="cond_rain_light">Lluvia ligera</string>
+    <string name="cond_rain_moderate">Lluvia moderada</string>
+    <string name="cond_rain_heavy">Lluvia intensa</string>
+    <string name="cond_storm">Tormenta electrica</string>
+    <string name="cond_snow">Nieve</string>
+
+    <string name="locations_title">Ubicacion establecida</string>
+    <string name="locations_search_hint">Buscar ciudad (ej. Orizaba, Xalapa)</string>
+    <string name="locations_search_btn">Buscar</string>
+    <string name="locations_use_device">Usar ubicacion del dispositivo (una vez)</string>
+    <string name="locations_presets_title">Altas Montanas y Veracruz</string>
+    <string name="locations_saved_title">Ubicaciones guardadas</string>
+    <string name="locations_no_results">Sin coincidencias para esa busqueda.</string>
+    <string name="locations_gps_denied">Permiso de ubicacion no concedido.</string>
+    <string name="locations_gps_unavailable">Ubicacion del dispositivo no disponible.</string>
+
+    <string name="privacy_title">Privacidad y fuente de datos</string>
+    <string name="privacy_body">Esta aplicacion opera sin telemetria, sin analiticas, sin rastreo en segundo plano y sin claves comerciales. Consulta datos meteorologicos de alta resolucion de Open-Meteo (ICON, ECMWF y GFS) exclusivamente para la ubicacion que tu estableces.</string>
+    <string name="source_footer_fmt">Fuente: Open-Meteo (modelo sierra/valle) | Actualizado %1$s</string>
+
+    <string name="status_loading">Actualizando clima...</string>
+    <string name="status_offline_cached">Sin conexion. Mostrando datos guardados.</string>
+    <string name="status_error_network">No se pudo actualizar el clima. Reintenta.</string>
+    <string name="retry_btn">Reintentar</string>
+
+    <string name="precip_label">Precipitacion</string>
+    <string name="precip_none_fmt">%.1f mm hoy</string>
+    <string name="wind_label">Viento</string>
+    <string name="wind_speed_fmt">%1$d km/h</string>
+
+    <string name="widget_dynamic_label">Clima Dinamico (2x2)</string>
+    <string name="widget_minimal_label">Clima Minimal (2x2)</string>
+    <string name="widget_solar_label">Ciclo Solar (2x2)</string>
+    <string name="widget_forecast_label">Pronostico Completo (4x2 / 4x4)</string>
+    <string name="widget_tap_refresh">Toca para actualizar</string>
+    <string name="sunrise_preview_placeholder">Amanecer: 6:35 AM</string>
+</resources>

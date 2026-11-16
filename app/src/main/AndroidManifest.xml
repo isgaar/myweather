@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <application
+        android:name=".MyWeatherApp"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MyWeather"
+        android:usesCleartextTraffic="false">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <receiver
+            android:name=".widget.provider.DynamicWeatherWidgetProvider"
+            android:exported="false"
+            android:label="@string/widget_dynamic_label">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_dynamic_info" />
+        </receiver>
+
+        <receiver
+            android:name=".widget.provider.MinimalWeatherWidgetProvider"
+            android:exported="false"
+            android:label="@string/widget_minimal_label">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_minimal_info" />
+        </receiver>
+
+        <receiver
+            android:name=".widget.provider.SolarHorizonWidgetProvider"
+            android:exported="false"
+            android:label="@string/widget_solar_label">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_solar_info" />
+        </receiver>
+
+        <receiver
+            android:name=".widget.provider.ForecastWeatherWidgetProvider"
+            android:exported="false"
+            android:label="@string/widget_forecast_label">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_forecast_info" />
+        </receiver>
+
+        <receiver
+            android:name=".widget.provider.WidgetRefreshReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="mx.isgaar.myweather.ACTION_REFRESH_WIDGETS" />
+            </intent-filter>
+        </receiver>
+
+    </application>
+</manifest>
+

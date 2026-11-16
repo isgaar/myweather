@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MyWeather</string>
+    <string name="badge_zero_telemetry">Zero telemetry</string>
+    <string name="cd_open_locations">Open locations</string>
+    <string name="cd_refresh_weather">Refresh weather</string>
+    <string name="cd_toggle_units">Switch temperature unit</string>
+    <string name="cd_privacy_info">Privacy and zero telemetry</string>
+    <string name="cd_close">Close</string>
+    <string name="cd_weather_icon">Weather condition icon</string>
+    <string name="cd_location_pin">Established location</string>
+
+    <string name="feels_like_fmt">Feels like %1$s</string>
+    <string name="high_low_fmt">%1$s / %2$s</string>
+    <string name="elevation_fmt">%1$d m elevation</string>
+    <string name="sunrise_label">Sunrise</string>
+    <string name="sunset_label">Sunset</string>
+    <string name="yesterday_label">Yesterday</string>
+    <string name="today_label">Today</string>
+    <string name="now_label">Now</string>
+
+    <string name="hourly_summary_fmt">%1$s. Highs of %2$s and lows of %3$s.</string>
+    <string name="section_hourly_title">Hourly forecast</string>
+    <string name="section_daily_title">Upcoming days</string>
+    <string name="section_solar_title">Solar cycle</string>
+    <string name="sunrise_value_fmt">Sunrise: %1$s</string>
+    <string name="sunset_value_fmt">Sunset: %1$s</string>
+
+    <string name="highlight_wind_title">Wind and gusts</string>
+    <string name="highlight_wind_body_fmt">%1$s %2$s, gusts up to %3$s</string>
+    <string name="highlight_humidity_title">Humidity and pressure</string>
+    <string name="highlight_humidity_body_fmt">Humidity %1$d%%, surface pressure %2$d hPa</string>
+    <string name="highlight_uv_title">UV index and visibility</string>
+    <string name="highlight_uv_body_fmt">UV %1$s (%2$s), visibility %3$s km</string>
+    <string name="highlight_air_title">Air quality and elevation</string>
+    <string name="highlight_air_body_fmt">AQI %1$d (%2$s), PM2.5 %3$s ug/m3</string>
+    <string name="highlight_air_na_fmt">Elevation %1$d m, zero telemetry active</string>
+
+    <string name="uv_low">Low</string>
+    <string name="uv_moderate">Moderate</string>
+    <string name="uv_high">High</string>
+    <string name="uv_very_high">Very high</string>
+    <string name="aqi_good">Good</string>
+    <string name="aqi_fair">Fair</string>
+    <string name="aqi_moderate">Moderate</string>
+    <string name="aqi_poor">Poor</string>
+
+    <string name="cond_clear">Clear</string>
+    <string name="cond_mostly_clear">Mostly clear</string>
+    <string name="cond_partly_cloudy">Partly cloudy</string>
+    <string name="cond_overcast">Overcast</string>
+    <string name="cond_fog">Fog and mist</string>
+    <string name="cond_drizzle">Drizzle</string>
+    <string name="cond_rain_light">Light rain</string>
+    <string name="cond_rain_moderate">Moderate rain</string>
+    <string name="cond_rain_heavy">Heavy rain</string>
+    <string name="cond_storm">Thunderstorm</string>
+    <string name="cond_snow">Snow</string>
+
+    <string name="locations_title">Established location</string>
+    <string name="locations_search_hint">Search city (e.g. Orizaba, Xalapa)</string>
+    <string name="locations_search_btn">Search</string>
+    <string name="locations_use_device">Use device location (once)</string>
+    <string name="locations_presets_title">High Mountains and Veracruz</string>
+    <string name="locations_saved_title">Saved locations</string>
+    <string name="locations_no_results">No matches found for that search.</string>
+    <string name="locations_gps_denied">Location permission was not granted.</string>
+    <string name="locations_gps_unavailable">Device location unavailable.</string>
+
+    <string name="privacy_title">Privacy and data source</string>
+    <string name="privacy_body">This app runs with zero telemetry, zero analytics, zero background tracking, and no commercial keys. It fetches high-resolution Open-Meteo forecasts (ICON, ECMWF, GFS) solely for the location you establish.</string>
+    <string name="source_footer_fmt">Source: Open-Meteo (mountain/valley) | Updated %1$s</string>
+
+    <string name="status_loading">Updating weather...</string>
+    <string name="status_offline_cached">Offline. Showing saved forecast.</string>
+    <string name="status_error_network">Could not refresh weather. Retry.</string>
+    <string name="retry_btn">Retry</string>
+
+    <string name="precip_label">Precipitation</string>
+    <string name="precip_none_fmt">%.1f mm today</string>
+    <string name="wind_label">Wind</string>
+    <string name="wind_speed_fmt">%1$d km/h</string>
+
+    <string name="widget_dynamic_label">Dynamic Weather (2x2)</string>
+    <string name="widget_minimal_label">Minimal Weather (2x2)</string>
+    <string name="widget_solar_label">Solar Cycle (2x2)</string>
+    <string name="widget_forecast_label">Full Forecast (4x2 / 4x4)</string>
+    <string name="widget_tap_refresh">Tap to refresh</string>
+    <string name="sunrise_preview_placeholder">Sunrise: 6:35 AM</string>
+</resources>

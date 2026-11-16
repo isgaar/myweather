@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="sky_night_top">#272B54</color>
+    <color name="sky_night_bottom">#3D4373</color>
+    <color name="sky_day_top">#2F6FC2</color>
+    <color name="sky_day_bottom">#5F9FE8</color>
+    <color name="sky_overcast_top">#384C63</color>
+    <color name="sky_overcast_bottom">#546D85</color>
+    <color name="sky_rain_top">#2A3A4F</color>
+    <color name="sky_rain_bottom">#3D526B</color>
+
+    <color name="surface_glass">#1EFFFFFF</color>
+    <color name="surface_glass_strong">#2EFFFFFF</color>
+    <color name="border_glass">#33FFFFFF</color>
+    <color name="surface_sheet">#F21E2440</color>
+    <color name="surface_pill">#24FFFFFF</color>
+
+    <color name="text_primary">#FFFFFFFF</color>
+    <color name="text_secondary">#C7D2E8</color>
+    <color name="text_muted">#8FA0C2</color>
+
+    <color name="accent_sun">#FFCA28</color>
+    <color name="accent_sun_warm">#FF9100</color>
+    <color name="accent_moon">#FFD54F</color>
+    <color name="accent_rain">#7CC4FF</color>
+    <color name="accent_curve">#F8E2A6</color>
+    <color name="accent_cool">#63C5DA</color>
+    <color name="accent_warm">#FF9E44</color>
+    <color name="accent_hot">#FF6E40</color>
+    <color name="accent_green">#66BB6A</color>
+
+    <color name="widget_sky_blue">#68A8F0</color>
+    <color name="widget_sky_blue_deep">#2F5E9E</color>
+    <color name="widget_slate_top">#5E6C7E</color>
+    <color name="widget_slate_bottom">#465466</color>
+    <color name="widget_light_card">#F7F8FA</color>
+    <color name="widget_light_text">#1C2331</color>
+    <color name="widget_light_subtext">#5B667A</color>
+</resources>
+
