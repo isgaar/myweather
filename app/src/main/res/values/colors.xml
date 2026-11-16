@@ -33,8 +33,15 @@
     <color name="widget_sky_blue_deep">#2F5E9E</color>
     <color name="widget_slate_top">#5E6C7E</color>
     <color name="widget_slate_bottom">#465466</color>
-    <color name="widget_light_card">#F7F8FA</color>
+    <color name="widget_light_card">#F9FAFC</color>
+    <color name="widget_light_card_bottom">#E9EEF5</color>
     <color name="widget_light_text">#1C2331</color>
     <color name="widget_light_subtext">#5B667A</color>
+    <color name="widget_light_border">#1A1C2331</color>
+    <color name="widget_cloud_light_fill">#8EA2BD</color>
+    <color name="widget_cloud_light_top">#B5C4D8</color>
+    <color name="widget_cloud_dark_shade">#D6E2F5</color>
+    <color name="widget_rain_dark_card">#7CC4FF</color>
+    <color name="widget_rain_light_card">#2563EB</color>
 </resources>
 
