@@ -12,6 +12,7 @@ import mx.isgaar.myweather.R
 import mx.isgaar.myweather.domain.model.TemperatureUnit
 import mx.isgaar.myweather.domain.model.WeatherSnapshot
 import mx.isgaar.myweather.widget.data.ForecastHeaderHelper
+import mx.isgaar.myweather.widget.data.WidgetDrawPrimitives
 import mx.isgaar.myweather.widget.data.WidgetTextHelper
 import kotlin.math.min
 
@@ -28,7 +29,7 @@ object ForecastWidgetRenderer {
         val w = canvas.width.toFloat()
         val h = canvas.height.toFloat()
         val u = min(w, h)
-        val tall = hDp >= 220 || h > w * 0.75f
+        val tall = hDp >= 220 || h > w * 0.72f
         val topId = if (tall) R.color.widget_slate_top
         else R.color.widget_sky_blue
         val botId = if (tall) R.color.widget_slate_bottom
@@ -39,25 +40,26 @@ object ForecastWidgetRenderer {
             ContextCompat.getColor(ctx, botId),
             (u * 0.11f).coerceAtMost(w * 0.08f)
         )
-
-        val pad = (w * 0.055f).coerceAtLeast(u * 0.08f)
+        val pad = (u * 0.078f).coerceAtLeast(14f)
         ForecastHeaderHelper.drawHeader(ctx, canvas, snap, unit, pad, tall)
-        val divP = mx.isgaar.myweather.widget.data.WidgetDrawPrimitives
-            .paint(0x28FFFFFF).apply { strokeWidth = 1.4f }
+        val divP = WidgetDrawPrimitives.paint(0x28FFFFFF).apply {
+            strokeWidth = 1.4f
+        }
         if (tall) {
-            canvas.drawLine(pad, h * 0.28f, w - pad, h * 0.28f, divP)
-            canvas.drawLine(pad, h * 0.50f, w - pad, h * 0.50f, divP)
+            canvas.drawLine(pad, h * 0.305f, w - pad, h * 0.305f, divP)
+            canvas.drawLine(pad, h * 0.530f, w - pad, h * 0.530f, divP)
         }
         ForecastHeaderHelper.drawHours(ctx, canvas, snap, unit, pad, wDp, tall)
+        val refR = (u * 0.028f).coerceIn(8f, 13f)
         if (tall && snap != null) {
+            val endBot = h - pad * 0.85f - refR * 1.4f
             ForecastDailyRows.draw(
-                ctx, canvas, snap, unit, pad, h * 0.53f, w, h, hDp
+                ctx, canvas, snap, unit, pad, h * 0.545f, w, endBot, hDp
             )
         }
         val sec = ContextCompat.getColor(ctx, R.color.text_secondary)
-        val refR = (u * 0.032f).coerceIn(9f, 16f)
         WidgetTextHelper.drawRefreshGlyph(
-            canvas, w - pad * 0.8f, h - pad * 0.65f, refR, sec
+            canvas, w - pad - refR * 0.4f, h - pad * 0.72f - refR, refR, sec
         )
         return bmp
     }

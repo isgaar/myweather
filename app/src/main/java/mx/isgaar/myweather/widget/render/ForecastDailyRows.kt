@@ -32,7 +32,7 @@ object ForecastDailyRows {
         pad: Float,
         startY: Float,
         w: Float,
-        h: Float,
+        endBot: Float,
         hDp: Int
     ) {
         val maxRows = if (hDp >= 290) 5 else 4
@@ -45,15 +45,18 @@ object ForecastDailyRows {
         val sec = ContextCompat.getColor(ctx, R.color.text_secondary)
         val cool = 0xFF7BE09C.toInt()
         val warm = 0xFFF5C443.toInt()
-        val availH = (h - startY - pad * 0.9f).coerceAtLeast(40f)
+        val availH = (endBot - startY).coerceAtLeast(48f)
         val rowH = availH / days.size
-        val fontSz = (rowH * 0.52f).coerceAtMost(h * 0.044f)
-        val barL = w * 0.45f
-        val barR = w * 0.80f
-        val barW = barR - barL
+        val fontSz = (rowH * 0.44f).coerceAtMost(endBot * 0.044f)
+        val innerW = w - pad * 2f
+        val barL = pad + innerW * 0.43f
+        val barR = w - pad - fontSz * 2.55f
+        val barW = (barR - barL).coerceAtLeast(40f)
+        val barH = (rowH * 0.16f).coerceIn(5f, 11f)
 
         days.forEachIndexed { idx, d ->
-            val y = startY + idx * rowH + fontSz
+            val cy = startY + (idx + 0.5f) * rowH
+            val y = cy + fontSz * 0.34f
             val dayName = if (d.dayIndexOffset == 0) {
                 ctx.getString(R.string.today_label)
             } else {
@@ -64,22 +67,27 @@ object ForecastDailyRows {
             }
             val nameP = WidgetTextHelper.fit(
                 WidgetCanvasHelper.textPaint(white, fontSz, bold = true),
-                dayName, w * 0.22f - pad
+                dayName, innerW * 0.20f
             )
             canvas.drawText(dayName, pad, y, nameP)
-            val glyphSz = (rowH * 0.46f).coerceAtMost(w * 0.06f)
+            val glyphSz = (rowH * 0.44f).coerceAtMost(innerW * 0.068f)
             WidgetCanvasHelper.drawWeatherGlyph(
                 ctx, canvas, d.condition, true,
-                w * 0.28f, y - fontSz * 0.35f, glyphSz
+                pad + innerW * 0.25f, cy, glyphSz
             )
+            val loP = WidgetCanvasHelper.textPaint(sec, fontSz * 0.94f).apply {
+                textAlign = Paint.Align.RIGHT
+            }
             canvas.drawText(
                 UnitFormatter.formatTemp(d.tempMinC, unit),
-                w * 0.35f, y, WidgetCanvasHelper.textPaint(sec, fontSz * 0.95f)
+                barL - innerW * 0.03f, y, loP
             )
-            val trackP = WidgetDrawPrimitives.paint(0x45091220)
-            val topB = y - fontSz * 0.48f
-            val botB = topB + (rowH * 0.18f).coerceIn(5f, 12f)
-            canvas.drawRoundRect(RectF(barL, topB, barR, botB), 8f, 8f, trackP)
+            val topB = cy - barH * 0.5f
+            val botB = cy + barH * 0.5f
+            canvas.drawRoundRect(
+                RectF(barL, topB, barR, botB), 8f, 8f,
+                WidgetDrawPrimitives.paint(0x45091220)
+            )
             val sF = ((d.tempMinC - gMin) / span).toFloat().coerceIn(0f, 0.85f)
             val wF = ((d.tempMaxC - d.tempMinC) / span).toFloat()
                 .coerceIn(0.15f, 1f - sF)
@@ -91,9 +99,10 @@ object ForecastDailyRows {
                 )
             }
             canvas.drawRoundRect(RectF(fL, topB, fR, botB), 8f, 8f, barP)
+            val hiP = WidgetCanvasHelper.textPaint(white, fontSz * 0.96f, true)
+                .apply { textAlign = Paint.Align.RIGHT }
             canvas.drawText(
-                UnitFormatter.formatTemp(d.tempMaxC, unit), w * 0.84f, y,
-                WidgetCanvasHelper.textPaint(white, fontSz * 0.96f, bold = true)
+                UnitFormatter.formatTemp(d.tempMaxC, unit), w - pad, y, hiP
             )
         }
     }

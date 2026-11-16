@@ -47,10 +47,9 @@ object DynamicWidgetRenderer {
             drawCompact(ctx, canvas, snap, unit, pad)
         }
         val white = ContextCompat.getColor(ctx, R.color.text_primary)
-        val refR = (u * 0.038f).coerceIn(10f, 18f)
+        val refR = (u * 0.030f).coerceIn(9f, 14f)
         WidgetTextHelper.drawRefreshGlyph(
-            canvas, w - pad - refR * 0.5f, h - pad * 0.65f - refR * 0.2f,
-            refR, white
+            canvas, w - pad - refR * 0.5f, h - pad * 0.72f - refR, refR, white
         )
         return bmp
     }
