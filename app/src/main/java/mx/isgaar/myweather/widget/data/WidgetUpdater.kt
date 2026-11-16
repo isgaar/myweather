@@ -12,8 +12,10 @@ import android.graphics.Bitmap
 import mx.isgaar.myweather.data.local.WeatherLocalStore
 import mx.isgaar.myweather.domain.model.TemperatureUnit
 import mx.isgaar.myweather.domain.model.WeatherSnapshot
+import mx.isgaar.myweather.widget.material.MaterialYouWidgetRenderer
 import mx.isgaar.myweather.widget.provider.DynamicWeatherWidgetProvider
 import mx.isgaar.myweather.widget.provider.ForecastWeatherWidgetProvider
+import mx.isgaar.myweather.widget.provider.MaterialYouWidgetProvider
 import mx.isgaar.myweather.widget.provider.MinimalWeatherWidgetProvider
 import mx.isgaar.myweather.widget.provider.SolarHorizonWidgetProvider
 import mx.isgaar.myweather.widget.render.DynamicWidgetRenderer
@@ -42,6 +44,11 @@ object WidgetUpdater {
         updateProvider(
             appCtx, mgr, ForecastWeatherWidgetProvider::class.java
         ) { w, h -> ForecastWidgetRenderer.render(appCtx, snap, unit, w, h) }
+        updateProvider(
+            appCtx, mgr, MaterialYouWidgetProvider::class.java
+        ) { w, h ->
+            MaterialYouWidgetRenderer.render(appCtx, snap, unit, w, h)
+        }
     }
 
     fun updateSingleProvider(

@@ -85,6 +85,7 @@
     <string name="widget_minimal_label">Minimal Weather (2x2)</string>
     <string name="widget_solar_label">Solar Cycle (2x2)</string>
     <string name="widget_forecast_label">Full Forecast (4x2 / 4x4)</string>
+    <string name="widget_you_label">Material You (2x2)</string>
     <string name="widget_tap_refresh">Tap to refresh</string>
     <string name="sunrise_preview_placeholder">Sunrise: 6:35 AM</string>
 </resources>

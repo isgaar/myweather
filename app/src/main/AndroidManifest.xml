@@ -74,6 +74,18 @@
         </receiver>
 
         <receiver
+            android:name=".widget.provider.MaterialYouWidgetProvider"
+            android:exported="false"
+            android:label="@string/widget_you_label">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_you_info" />
+        </receiver>
+
+        <receiver
             android:name=".widget.provider.WidgetRefreshReceiver"
             android:exported="false">
             <intent-filter>
