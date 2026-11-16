@@ -20,13 +20,16 @@ import kotlin.math.min
 
 object MinimalWidgetRenderer {
 
+    private fun tp(c: Int, s: Float, b: Boolean, l: Boolean = false): Paint =
+        WidgetCanvasHelper.textPaint(c, s, b, l).apply { clearShadowLayer() }
+
     fun render(
         ctx: Context, snap: WeatherSnapshot?,
         unit: TemperatureUnit, wDp: Int, hDp: Int
     ): Bitmap {
         val (bmp, canvas) = WidgetCanvasHelper.createBitmap(ctx, wDp, hDp)
-        val w = canvas.width.toFloat()
-        val u = min(w, canvas.height.toFloat())
+        val (w, h) = canvas.width.toFloat() to canvas.height.toFloat()
+        val u = min(w, h)
         WidgetCanvasHelper.drawCardBackground(
             canvas,
             ContextCompat.getColor(ctx, R.color.widget_light_card),
@@ -40,11 +43,8 @@ object MinimalWidgetRenderer {
         val temp = snap?.let {
             UnitFormatter.formatTemp(it.current.temperatureC, unit)
         } ?: "--"
-        if (w > canvas.height * 1.32f) {
-            drawWide(ctx, canvas, snap, cond, temp, fg, sub)
-        } else {
-            drawSquare(ctx, canvas, snap, cond, temp, fg, sub)
-        }
+        if (w > h * 1.32f) drawWide(ctx, canvas, snap, cond, temp, fg, sub)
+        else drawSquare(ctx, canvas, snap, cond, temp, fg, sub)
         return bmp
     }
 
@@ -61,7 +61,6 @@ object MinimalWidgetRenderer {
             ctx, canvas, cond, snap?.current?.isDay ?: true,
             pad + gSz * 0.50f, h * 0.48f, gSz, true
         )
-        val tp = WidgetCanvasHelper::textPaint
         val fit = WidgetTextHelper::fit
         val tPaint = fit(tp(fg, u * 0.30f, false, true), temp, w * 0.25f, 12f)
         val tX = pad + gSz * 1.08f
@@ -89,7 +88,6 @@ object MinimalWidgetRenderer {
         val (w, h) = canvas.width.toFloat() to canvas.height.toFloat()
         val u = min(w, h)
         val refR = (u * 0.036f).coerceIn(10f, 18f)
-        val tp = WidgetCanvasHelper::textPaint
         val fit = WidgetTextHelper::fit
         val gSz = u * 0.24f
         val tP = fit(tp(fg, u * 0.25f, false, true), temp, w * 0.48f, 12f)

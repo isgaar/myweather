@@ -29,18 +29,18 @@
     <color name="accent_hot">#FF6E40</color>
     <color name="accent_green">#66BB6A</color>
 
-    <color name="widget_sky_blue">#68A8F0</color>
-    <color name="widget_sky_blue_deep">#2F5E9E</color>
-    <color name="widget_slate_top">#5E6C7E</color>
-    <color name="widget_slate_bottom">#465466</color>
-    <color name="widget_light_card">#F9FAFC</color>
-    <color name="widget_light_card_bottom">#E9EEF5</color>
+    <color name="widget_sky_blue">#DF235391</color>
+    <color name="widget_sky_blue_deep">#EC153564</color>
+    <color name="widget_slate_top">#DB657384</color>
+    <color name="widget_slate_bottom">#EC445163</color>
+    <color name="widget_light_card">#EEF7F9FC</color>
+    <color name="widget_light_card_bottom">#F2E5EBF4</color>
     <color name="widget_light_text">#1C2331</color>
     <color name="widget_light_subtext">#5B667A</color>
-    <color name="widget_light_border">#1A1C2331</color>
-    <color name="widget_cloud_light_fill">#8EA2BD</color>
-    <color name="widget_cloud_light_top">#B5C4D8</color>
-    <color name="widget_cloud_dark_shade">#D6E2F5</color>
+    <color name="widget_light_border">#221C2331</color>
+    <color name="widget_cloud_light_fill">#889BB6</color>
+    <color name="widget_cloud_light_top">#B0C0D6</color>
+    <color name="widget_cloud_dark_shade">#DCE6F6</color>
     <color name="widget_rain_dark_card">#7CC4FF</color>
     <color name="widget_rain_light_card">#2563EB</color>
 </resources>

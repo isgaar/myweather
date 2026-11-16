@@ -43,8 +43,8 @@ object ForecastDailyRows {
         val span = (gMax - gMin).coerceAtLeast(1.0)
         val white = ContextCompat.getColor(ctx, R.color.text_primary)
         val sec = ContextCompat.getColor(ctx, R.color.text_secondary)
-        val cool = ContextCompat.getColor(ctx, R.color.accent_cool)
-        val warm = ContextCompat.getColor(ctx, R.color.accent_warm)
+        val cool = 0xFF7BE09C.toInt()
+        val warm = 0xFFF5C443.toInt()
         val availH = (h - startY - pad * 0.9f).coerceAtLeast(40f)
         val rowH = availH / days.size
         val fontSz = (rowH * 0.52f).coerceAtMost(h * 0.044f)
@@ -76,7 +76,7 @@ object ForecastDailyRows {
                 UnitFormatter.formatTemp(d.tempMinC, unit),
                 w * 0.35f, y, WidgetCanvasHelper.textPaint(sec, fontSz * 0.95f)
             )
-            val trackP = WidgetDrawPrimitives.paint(0x33FFFFFF)
+            val trackP = WidgetDrawPrimitives.paint(0x45091220)
             val topB = y - fontSz * 0.48f
             val botB = topB + (rowH * 0.18f).coerceIn(5f, 12f)
             canvas.drawRoundRect(RectF(barL, topB, barR, botB), 8f, 8f, trackP)

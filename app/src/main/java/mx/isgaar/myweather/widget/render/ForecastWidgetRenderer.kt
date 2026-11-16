@@ -29,11 +29,10 @@ object ForecastWidgetRenderer {
         val h = canvas.height.toFloat()
         val u = min(w, h)
         val tall = hDp >= 220 || h > w * 0.75f
-        val isDay = snap?.current?.isDay ?: true
-        val topId = if (isDay) R.color.sky_day_top
-        else R.color.widget_slate_top
-        val botId = if (isDay) R.color.widget_sky_blue_deep
-        else R.color.widget_slate_bottom
+        val topId = if (tall) R.color.widget_slate_top
+        else R.color.widget_sky_blue
+        val botId = if (tall) R.color.widget_slate_bottom
+        else R.color.widget_sky_blue_deep
         WidgetCanvasHelper.drawCardBackground(
             canvas,
             ContextCompat.getColor(ctx, topId),
@@ -43,6 +42,12 @@ object ForecastWidgetRenderer {
 
         val pad = (w * 0.055f).coerceAtLeast(u * 0.08f)
         ForecastHeaderHelper.drawHeader(ctx, canvas, snap, unit, pad, tall)
+        val divP = mx.isgaar.myweather.widget.data.WidgetDrawPrimitives
+            .paint(0x28FFFFFF).apply { strokeWidth = 1.4f }
+        if (tall) {
+            canvas.drawLine(pad, h * 0.28f, w - pad, h * 0.28f, divP)
+            canvas.drawLine(pad, h * 0.50f, w - pad, h * 0.50f, divP)
+        }
         ForecastHeaderHelper.drawHours(ctx, canvas, snap, unit, pad, wDp, tall)
         if (tall && snap != null) {
             ForecastDailyRows.draw(

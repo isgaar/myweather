@@ -39,6 +39,7 @@ object WidgetDrawPrimitives {
                     cx - r * 0.25f, cy - r * 0.25f, r * 1.2f,
                     sunTop, sunBot, Shader.TileMode.CLAMP
                 )
+                setShadowLayer((r * 0.25f).coerceIn(2f, 8f), 0f, 2f, 0x48040A18)
             }
             canvas.drawCircle(cx, cy, r, core)
         } else {
@@ -52,17 +53,16 @@ object WidgetDrawPrimitives {
                 addCircle(cx, cy, r * 0.9f, Path.Direction.CW)
                 op(cut, Path.Op.DIFFERENCE)
             }
-            canvas.drawPath(crescent, paint(moonCol))
+            val mp = paint(moonCol).apply {
+                setShadowLayer((r * 0.28f).coerceIn(2f, 8f), 0f, 2f, 0x52040A18)
+            }
+            canvas.drawPath(crescent, mp)
         }
     }
 
     fun drawCloud(
-        ctx: Context,
-        canvas: Canvas,
-        cx: Float,
-        cy: Float,
-        sz: Float,
-        lightSurface: Boolean
+        ctx: Context, canvas: Canvas, cx: Float, cy: Float,
+        sz: Float, lightSurface: Boolean
     ) {
         val baseC = ContextCompat.getColor(
             ctx,
@@ -74,11 +74,13 @@ object WidgetDrawPrimitives {
             if (lightSurface) R.color.widget_cloud_light_top
             else R.color.text_primary
         )
-        val baseP = paint(baseC)
+        val sc = if (lightSurface) 0x260E1728 else 0x56040A18
+        val baseP = paint(baseC).apply {
+            setShadowLayer((sz * 0.14f).coerceIn(2f, 9f), 0f, 3f, sc)
+        }
         val topP = paint(topC)
         val rf = RectF(
-            cx - sz * 0.40f, cy + sz * 0.02f,
-            cx + sz * 0.40f, cy + sz * 0.28f
+            cx - sz * 0.40f, cy + sz * 0.02f, cx + sz * 0.40f, cy + sz * 0.28f
         )
         canvas.drawRoundRect(rf, sz * 0.13f, sz * 0.13f, baseP)
         canvas.drawCircle(cx - sz * 0.17f, cy + sz * 0.04f, sz * 0.22f, topP)
@@ -87,20 +89,15 @@ object WidgetDrawPrimitives {
     }
 
     fun drawPrecip(
-        ctx: Context,
-        canvas: Canvas,
-        cond: WeatherCondition,
-        cx: Float,
-        cy: Float,
-        sz: Float,
-        lightSurface: Boolean
+        ctx: Context, canvas: Canvas, cond: WeatherCondition,
+        cx: Float, cy: Float, sz: Float, lightSurface: Boolean
     ) {
-        if (cond !in listOf(
-                WeatherCondition.DRIZZLE, WeatherCondition.RAIN_LIGHT,
-                WeatherCondition.RAIN_MODERATE, WeatherCondition.RAIN_HEAVY,
-                WeatherCondition.STORM
-            )
-        ) return
+        val wet = cond == WeatherCondition.DRIZZLE ||
+            cond == WeatherCondition.RAIN_LIGHT ||
+            cond == WeatherCondition.RAIN_MODERATE ||
+            cond == WeatherCondition.RAIN_HEAVY ||
+            cond == WeatherCondition.STORM
+        if (!wet) return
         val rainC = ContextCompat.getColor(
             ctx,
             if (lightSurface) R.color.widget_rain_light_card

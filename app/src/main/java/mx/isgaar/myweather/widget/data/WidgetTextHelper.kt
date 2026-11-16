@@ -70,5 +70,31 @@ object WidgetTextHelper {
         val hp = WidgetDrawPrimitives.paint(col).apply { alpha = 205 }
         canvas.drawPath(head, hp)
     }
+
+    fun drawHorizonIcon(
+        canvas: Canvas, x: Float, y: Float, r: Float, col: Int
+    ) {
+        val p = WidgetDrawPrimitives.paint(col).apply { strokeWidth = 2f }
+        canvas.drawCircle(x + r, y - r * 0.2f, r * 0.72f, p)
+        canvas.drawLine(x - 1f, y + r * 0.55f, x + r * 2.1f, y + r * 0.55f, p)
+    }
+
+    fun drawSplitClock(
+        canvas: Canvas, clk: String, x: Float, y: Float, maxW: Float,
+        tp: (Float) -> Paint, baseSz: Float
+    ) {
+        val parts = clk.split(" ")
+        val time = parts.firstOrNull() ?: clk
+        val amp = parts.getOrNull(1).orEmpty()
+        var sz = baseSz
+        while (sz > 13f) {
+            val wTot = tp(sz).measureText(time) +
+                tp(sz * 0.66f).measureText(amp)
+            if (wTot <= maxW) break else sz *= 0.92f
+        }
+        val mp = tp(sz)
+        canvas.drawText(time, x, y, mp)
+        canvas.drawText(amp, x + mp.measureText(time) + 2f, y, tp(sz * 0.66f))
+    }
 }
 
